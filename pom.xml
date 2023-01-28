@@ -8,14 +8,21 @@
 		<version>2.7.7</version>
 		<relativePath /> <!-- lookup parent from repository -->
 	</parent>
+	
 	<groupId>br.app.narede</groupId>
+	
 	<artifactId>cursomc</artifactId>
+	
 	<version>0.0.1-SNAPSHOT</version>
+	
 	<name>cursomc</name>
+	
 	<description>Cruso  Spring Nélio</description>
+	
 	<properties>
 		<java.version>11</java.version>
 	</properties>
+	
 	<dependencies>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
