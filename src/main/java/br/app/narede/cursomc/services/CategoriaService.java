@@ -11,6 +11,7 @@ import org.springframework.data.domain.Sort.Direction;
 import org.springframework.stereotype.Service;
 
 import br.app.narede.cursomc.domain.Categoria;
+import br.app.narede.cursomc.dto.CategoriaDTO;
 import br.app.narede.cursomc.repositories.CategoriaRepository;
 import br.app.narede.cursomc.services.exceptions.DataIntegrityException;
 import br.app.narede.cursomc.services.exceptions.ObjectNotFoundException;
@@ -58,4 +59,15 @@ public class CategoriaService {
 		return repo.findAll(pageRequest);
 	}
 	
+	
+	public Categoria fromDTO(CategoriaDTO objDto) {
+		return new Categoria(objDto.getId(), objDto.getNome());
+	}
 }
+
+
+
+
+
+
+
