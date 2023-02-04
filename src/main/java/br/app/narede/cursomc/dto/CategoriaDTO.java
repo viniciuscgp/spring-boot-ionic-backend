@@ -1,11 +1,8 @@
 package br.app.narede.cursomc.dto;
 
 import java.io.Serializable;
-
 import javax.validation.constraints.NotEmpty;
-
 import org.hibernate.validator.constraints.Length;
-
 import br.app.narede.cursomc.domain.Categoria;
 
 public class CategoriaDTO  implements Serializable{
