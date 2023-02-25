@@ -1,6 +1,8 @@
 package br.app.narede.cursomc.domain;
 
 import java.io.Serializable;
+import java.text.NumberFormat;
+import java.util.Locale;
 import java.util.Objects;
 
 import javax.persistence.EmbeddedId;
@@ -99,6 +101,24 @@ public class ItemPedido  implements Serializable{
 			return false;
 		ItemPedido other = (ItemPedido) obj;
 		return Objects.equals(id, other.id);
+	}
+
+	@Override
+	public String toString() {
+		NumberFormat nf = NumberFormat.getCurrencyInstance(new Locale("pt", "BR"));
+		
+		StringBuilder builder = new StringBuilder();
+		builder
+		.append(getProduto().getNome())
+		.append(", quantidade=").append(quantidade)
+		.append(", preco=").append(nf.format(preco))
+		.append(", subtotal=").append(nf.format(getSubTotal()))
+		.append("\n");
+		
+		
+		
+		return builder.toString();
+		
 	}
 	
 	

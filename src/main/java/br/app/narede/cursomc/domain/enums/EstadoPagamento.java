@@ -28,5 +28,10 @@ public enum EstadoPagamento {
 
 		throw new IllegalArgumentException("Id inválido: " + cod);
 	}
+	
+	public String getDescricao() {
+		EstadoPagamento ep = EstadoPagamento.toEnum(cod); 
+		return ep.toString(); 
+	}	
 
 }
