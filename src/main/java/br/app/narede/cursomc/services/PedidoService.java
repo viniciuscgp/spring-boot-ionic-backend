@@ -12,7 +12,6 @@ import br.app.narede.cursomc.domain.ItemPedido;
 import br.app.narede.cursomc.domain.PagamentoComBoleto;
 import br.app.narede.cursomc.domain.Pedido;
 import br.app.narede.cursomc.domain.enums.EstadoPagamento;
-import br.app.narede.cursomc.repositories.ClienteRepository;
 import br.app.narede.cursomc.repositories.ItemPedidoRepository;
 import br.app.narede.cursomc.repositories.PagamentoRepository;
 import br.app.narede.cursomc.repositories.PedidoRepository;
@@ -38,6 +37,9 @@ public class PedidoService {
 	
 	@Autowired
 	private ClienteService clienteService;
+	
+	@Autowired
+	private EmailService emailService;
 	
 	public Pedido find(Integer id) {
 		Optional<Pedido> obj = repo.findById(id);
@@ -68,12 +70,13 @@ public class PedidoService {
 			ip.setDesconto(0.0);
 			ip.setProduto(produtoService.find(ip.getProduto().getId()));
 			ip.setPreco(produtoService.find(ip.getProduto().getId()).getPreco());
-			ip.setPedido(obj);
+			ip.setPedido(obj);	
 		}
 
 		itemPedidoRepository.saveAll(obj.getItens());
 		
-		System.out.println(obj);
+		emailService.sendOrderConfirmationEmail(obj);
+		
 		return obj;
 	}
 }

@@ -11,7 +11,6 @@ import org.springframework.data.domain.Sort.Direction;
 import org.springframework.stereotype.Service;
 
 import br.app.narede.cursomc.domain.Categoria;
-import br.app.narede.cursomc.domain.Cliente;
 import br.app.narede.cursomc.dto.CategoriaDTO;
 import br.app.narede.cursomc.repositories.CategoriaRepository;
 import br.app.narede.cursomc.services.exceptions.DataIntegrityException;
